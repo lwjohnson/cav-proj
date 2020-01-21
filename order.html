@@ -2,97 +2,154 @@
 <html>
   <head>
     <title>Order Form</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="jquery_order.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="orderStyle.css" />
 
 
   </head>
 
   <body>
-    <div class = "main-container">
+    <!--container for main page-->
+    <div class = "main-container container-fluid padded">
+
+      <!--header of page-->
       <div class="header-container container-fluid top-bar">
         <h1 style="margin-left:1%; margin-top: 2%;">The Cavern</h1>
         <h3 style="margin-left:4%;">Order Form</h3>
       </div>
-      <form name="order" onsubmit="return validateForm(name.value, fries.value)" action="http://redstone.roanoke.edu/training/process.php" method="POST">
-        <h4 style="margin-top: 2%;" class="leftBump">Entree:</h4>
-           <input type="radio" class ="entree_choice leftBump"  name="entree_choice" value="burger"> Burger<br>
-           <input type="radio" class="entree_choice leftBump" name="entree_choice" value="wrap"> Wrap<br>
+      <!--Contianer for name, entree choice, condements, etc. -->
+      <div class = "container-fluid padded">
 
-     <div class="container-fluid padded">
-       <div class="row">
-         <div class="nameArea col-md-6">
-           <h4 class="leftBump">Name</h4>
-           <input class="name"  style="margin-bottom: 5%;" type="text" name ="name">
-         </div>
-        <div class="entOptions col-md-6">
-         <div class="burgers">
-               <h4 class="leftBump">Burgers</h4>
-               <select name="Burger_Entree">
-                  <option class="burgers" value="hamburger">Hamburger</option>
-                  <option class="burgers" value="black_bean_burger">Black Bean Burger</option>
-                  <option class="burgers" value="spicy_chicken_sand">Spicy Chicken Sandwich</option>
-                  <option class="burgers" value="grilled_chicken_sandwich">Grilled Chicken Sandwich</option>
-                  <option class="burgers" value="crispy_chicken_sandwich">Crispy Chicken Sandwich</option>
-                  <option class="burgers" value="2x_peanut_butter_and_jelly">2x Peanut Butter and Jelly</option>
-                </select>
-                </div>
-
-
-          <h4>Wraps</h4>
-          <div class="wraps">
-                <select class name="Wrap_Entree">
-                  <option class="wraps" value="turkey_wrap">Turkey Wrap</option>
-                  <option class="wraps" value="spicy_chicken_wrap">Spicy Chicken Wrap</option>
-                  <option class="wraps" value="grilled_chicken_wrap">Grilled Chicken Wrap</option>
-                  <option class="wraps" value="crispy_chicken_wrap">Crispy Chicken Wrap</option>
-                  <option class="wraps" value="veggie_wrap">Veggie Wrap</option>
-                  </select>
-                </div>
+        <!--Entree radio button selection-->
+        <form name="order" onsubmit="return validateForm(name.value, fries.value)" action="http://redstone.roanoke.edu/training/process.php" method="POST">
+          <div class="row">
+            <div class="entree_type col-md-12">
+              <label for="entree_type">Entree:</label>
+              <div id="entree_type">
+                <input type="radio" class ="entree_choice"  name="entree_choice" value="burger"> Burger<br>
+                <input type="radio" class="entree_choice" name="entree_choice" value="wrap"> Wrap<br>
+              </div>
             </div>
           </div>
+          <br>
+          <div class="rest">
+            <!--Name and entree choice-->
+            <div class="row">
+              <!--name-->
+              <div class="nameArea col-md-6">
+                <label for="name">Name</label>
+                <input id="name" class="form-control" style="margin-bottom: 5%;" type="text">
+              </div>
+
+              <!--Entrees-->
+              <div class="entOptions col-md-6">
+                <!--Burger options and select button-->
+                <div class="burger_stuff">
+                  <label for="burgers">Burgers</label>
+                  <select name="burger_choice" id="burgers" class="form-control">
+                    <option value="none">None</option>
+                    <option value="hamburger">Hamburger</option>
+                    <option value="black_bean_burger">Black Bean Burger</option>
+                    <option value="spicy_chicken_sand">Spicy Chicken Sandwich</option>
+                    <option value="grilled_chicken_sandwich">Grilled Chicken Sandwich</option>
+                    <option value="crispy_chicken_sandwich">Crispy Chicken Sandwich</option>
+                    <option value="2x_peanut_butter_and_jelly">2x Peanut Butter and Jelly</option>
+                  </select>
+                </div>
+
+                <!--Wrap options and select button-->
+                <div class="wraps">
+                  <label for="wraps">Wraps</label>
+                  <select name="wrap_choice" id="wraps" class="form-control">
+                    <option value="none">None</option>
+                    <option value="turkey_wrap">Turkey Wrap</option>
+                    <option value="spicy_chicken_wrap">Spicy Chicken Wrap</option>
+                    <option value="grilled_chicken_wrap">Grilled Chicken Wrap</option>
+                    <option value="crispy_chicken_wrap">Crispy Chicken Wrap</option>
+                    <option value="veggie_wrap">Veggie Wrap</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
 
+            <!--Condiments selection-->
+            <div class="row condiment">
+              <!--Seperation from Entrees to condiments-->
+              <hr/>
+              <label for="condiments">Condiments</label>
+              <div id="condiments">
+                <div class="col-md-4">
+                  <input type="checkbox" name="condiments1" value="ranch"> Ranch<br>
+                  <input type="checkbox" name="condiments2" value="honey_mustard"> Honey Mustard<br>
+                  <input type="checkbox" name="condiments3" value="buffalo_sauce"> Buffalo Sauce<br>
+                  <br>
+                </div>
+                <div class="col-md-4">
+                  <input type="checkbox" name="condiments4" value="mayo"> Mayo<br>
+                  <input type="checkbox" name="condiments5" value="deli_mustard"> Deli Mustard<br>
+                  <input type="checkbox" name="condiments6" value="red_roasted_hummus"> Red Roasted Hummus<br>
+                  <br>
+                </div>
+                <div class="col-md-4">
+                  <input type="checkbox" name="condiments7" value="ketchup"> Ketchup<br>
+                  <input type="checkbox" name="condiments8" value="bbq"> BBQ<br>
+                  <input type="checkbox" name="condiments9" value="texas_pete"> Texas Pete<br>
+                </div>
+              </div>
+            </div>
 
-        <div class="rest">
+            <!-- container for toppings, cheese, and fries -->
+            <div class="row t_c_f">
+              <!--Seperation from condiments to Toppings-->
+              <hr/>
+              <!--Toppings container-->
+              <div class="col-md-6">
+                <label for="toppings">Toppings</label>
+                <div class="toppings">
+                  <input type="checkbox" name="toppings1" value="lettuce"> Lettuce<br>
+                  <input type="checkbox" name="toppings2" value="tomato"> Tomato<br>
+                  <input type="checkbox" name="toppings3" value="red_onion"> Red Onion<br>
+                  <input type="checkbox" name="toppings4" value="pickles"> Pickles<br>
+                  <input type="checkbox" name="toppings5" value="cucumbers"> Cucumbers<br>
+                  <br>
+                </div>
+              </div>
 
-            Condiments:<br>
-              <input type="checkbox" name="condiments1" value="ranch"> Ranch<br>
-              <input type="checkbox" name="condiments2" value="honey_mustard"> Honey Mustard<br>
-              <input type="checkbox" name="condiments3" value="buffalo_sauce"> Buffalo Sauce<br>
-              <input type="checkbox" name="condiments4" value="mayo"> Mayo<br>
-              <input type="checkbox" name="condiments5" value="deli_mustard"> Deli Mustard<br>
-              <input type="checkbox" name="condiments6" value="red_roasted_hummus"> Red Roasted Hummus<br>
-              <input type="checkbox" name="condiments7" value="ketchup"> Ketchup<br>
-              <input type="checkbox" name="condiments8" value="bbq"> BBQ<br>
-              <input type="checkbox" name="condiments9" value="texas_pete"> Texas Pete<br>
-            </br>
+              <div class="col-md-6">
+                <!--Cheese container-->
+                <div class="burger_stuff">
+                  <label for="cheese">Cheese</label>
+                  <div class="cheese">
+                    <input type="radio" name="cheese" value="american"> American<br>
+                    <input type="radio" name="cheese" value="Provolone"> Provolone<br>
+                    <input type="radio" name="cheese" value="none"> No Cheese<br>
 
-            <div class="burgers">
-              Cheese:<br>
-                <input type="radio" name="cheese" value="american"> American<br>
-                <input type="radio" name="cheese" value="Provolone"> Provolone<br>
-              </br>
-           </div>
-             Toppings:<br>
-               <input type="checkbox" name="toppings1" value="lettuce"> Lettuce<br>
-               <input type="checkbox" name="toppings2" value="tomato"> Tomato<br>
-               <input type="checkbox" name="toppings3" value="red_onion"> Red Onion<br>
-               <input type="checkbox" name="toppings4" value="pickles"> Pickles<br>
-               <input type="checkbox" name="toppings5" value="cucumbers"> Cucumbers<br>
-             <br>
+                  </div>
+                </div>
+                <br>
 
-             Fries:<br>
-               <label><input type="radio" name="fries" value="Yes" > Yes<br></label>
-               <label><input type="radio" name="fries" value="No" checked="true"> No<br></label>
-             </br>
-            <input type="submit"  value="Submit Order">
-         </div>
-      </form>
-    </div>
+                <!--Fries container-->
+                <label for="fries">Fries</label>
+                <div id="fries">
+                    <input type="radio" name="fries" value="Yes" > Yes<br>
+                    <input type="radio" name="fries" value="No" checked="true"> No<br>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <!--Submit button-->
+            <button type="submit" class="btn btn-default submit" value="Submit Order">Place Order
+            <br><br>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

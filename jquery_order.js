@@ -27,23 +27,29 @@ $(function(){
   $(".entree_choice").click(() => {
       var val = $("input[name=entree_choice]:checked").val();
       if(val == "burger"){
-        $(".rest").show();
-        $(".burgers").show();
+        $(".condiment").show();
+        $(".burger_stuff").show();
         $(".wraps").hide();
+        $(".t_c_f").show();
+        $(".rest").show();
+
 
       } else if (val == "wrap") {
-        $(".rest").show();
+        $(".condiment").show();
         $(".wraps").show();
-        $(".burgers").hide();
+        $(".burger_stuff").hide();
+        $(".t_c_f").show();
+        $(".rest").show();
       }
   });
 
 
   function main(){
-    $(".rest").hide();
+    $(".condiment").hide();
     $(".burgers").hide();
     $(".wraps").hide();
-
+    $(".t_c_f").hide();
+    $(".rest").hide();
   }
 
   main();

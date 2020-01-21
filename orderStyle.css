@@ -1,6 +1,3 @@
-.name {
-  margin-left: 5%;
-}
 
 body {
   background-color: tan;
@@ -11,22 +8,11 @@ body {
   color: white;
 }
 
-.leftBump {
-  margin-left: 5%;
-}
 
 h4 {
   color: black;
 }
-.entOptions {
 
-}
-
-.wraps {
-  font-size: 13px;
-  padding: 10px 8px 10px 14px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  position: relative;
+.submit {
+  float: right;
 }
