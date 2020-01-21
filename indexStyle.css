@@ -1,0 +1,52 @@
+.top-bar {
+  background-color: maroon;
+  color: white;
+}
+h4 {
+  color: black;
+}
+body {
+  background-color: tan;
+}
+
+.image1 {
+  width: 95%;
+  float: left;
+  font-family: Veranda;
+}
+
+.image2 {
+  width: 95%;
+  height: 85%;
+  float: right;
+  margin-left: 10%;
+  font-family: Veranda;
+}
+
+.text {
+  width: 95%;
+  margin-left: 10%;
+  float: right;
+}
+
+.hours {
+  width: 95%;
+  text-align: left;
+
+}
+
+#menu {
+  background-color: maroon;
+  color: white;
+  padding: 8px;
+}
+
+#order {
+  background-color: maroon;
+  color: white;
+  padding: 8px;
+}
+
+#sunday {
+  text-align: center;
+}
